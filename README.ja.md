@@ -9,12 +9,15 @@
 </div>
 
 
-<div align="center" style="margin-bottom: 4rem">
+<div align="center">
 
-<div style="font-size: 5rem;">🦊</div>
-<div style="font-size: 2rem;">Chuno</div>
-<div style="font-size: 1.3rem;">Go製の簡易的なMarkDown プレビュー サーバー💨</div>
-</div>
+<img src="https://emoji2svg.deno.dev/api/🍣" alt="eyecatch" height="100">
+
+# Chuno
+Instant preview server written in Go💨
+
+<br>
+<br>
 
 
 </div>
