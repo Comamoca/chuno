@@ -1,4 +1,4 @@
-package main
+package chuno
 
 import (
 	"bytes"
@@ -54,9 +54,10 @@ const base = `<!doctype html>
 var style string
 
 func load(path string) ([]byte, error) {
+	log.Println("load", path)
 	f, err := os.Open(path)
 	if err != nil {
-		log.Fatal(err)
+		log.Fatal("File Open Error\n", err)
 		return nil, err
 	}
 
