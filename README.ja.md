@@ -42,8 +42,8 @@ Instant preview server written in Go💨
 
 - ライブラリとして使う場合  
 ```go
-err := LaunchPreviewServer("README.md", 3535)
-
+err := chuno.LaunchPreviewServer(path,
+		3535, isDark)
 if err != nil {
 	log.Fatal(err)
 		os.Exit(1)
@@ -53,8 +53,7 @@ if err != nil {
 ## ⬇️  Install
 
 - CLIツールとして使う場合  
-`go install github.com/Comamoca/chuno@latest`
-
+`go install github.com/Comamoca/chuno/cmd/chuno@latest`
 
 - ライブラリとして使う場合  
 `go get github.com/Comamoca/chuno`
@@ -63,7 +62,7 @@ if err != nil {
 
 ```sh
 // debug run
-go run . README.md
+go run ./cmd/chuno/main.go ./README.md
 ```
 
 ## 📝 Todo
