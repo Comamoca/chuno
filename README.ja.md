@@ -11,7 +11,7 @@
 
 <div align="center">
 
-<img src="https://emoji2svg.deno.dev/api/🍣" alt="eyecatch" height="100">
+<img src="https://emoji2svg.deno.dev/api/🦊" alt="eyecatch" height="100">
 
 # Chuno
 Instant preview server written in Go💨
