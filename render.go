@@ -2,6 +2,7 @@ package chuno
 
 import (
 	"bytes"
+	"embed"
 	"fmt"
 	"io/ioutil"
 	"log"
@@ -20,6 +21,10 @@ var md = goldmark.New(
 		html.WithUnsafe(),
 	),
 )
+
+//go:embed js/prism.js
+//go:embed css/prism.css
+var assets embed.FS
 
 const base = `<!doctype html>
 <html>
@@ -48,6 +53,11 @@ const base = `<!doctype html>
   {{ .Content }}
 </article>
 </body>
+<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+<script>
+mermaid.initialize({startOnLoad: true});
+mermaid.init(undefined, '.language-mermaid');
+</script>
 </html>
 `
 
@@ -99,11 +109,11 @@ func render(mdtext []byte, isdark bool) ([]byte, error) {
 	}
 	writer := new(strings.Builder)
 
-	mp :=  map[string]interface{}{
-		"Content": buf.String(),
-		"Css": css,
+	mp := map[string]interface{}{
+		"Content":   buf.String(),
+		"Css":       css,
 		"DarkStyle": style,
-    }
+	}
 
 	tmpl.Execute(writer, mp)
 
