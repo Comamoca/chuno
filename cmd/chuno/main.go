@@ -25,14 +25,14 @@ func main() {
 
 	path := args[0]
 
-	var isDark = false
+	isDark := false
 
 	if contain(args, "--dark") {
 		isDark = true
 	}
 
 	err := chuno.LaunchPreviewServer(path,
-	3535, isDark)
+		3535, isDark)
 	if err != nil {
 		log.Fatal(err)
 		os.Exit(1)
@@ -40,8 +40,8 @@ func main() {
 }
 
 func contain(arr []string, str string) bool {
-	for _, v := range arr{
-		if v == str{
+	for _, v := range arr {
+		if v == str {
 			return true
 		}
 	}
