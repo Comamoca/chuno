@@ -1,3 +1,4 @@
+// This is exsample cli tool for chuno.
 package main
 
 import (
