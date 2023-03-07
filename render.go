@@ -31,6 +31,10 @@ const base = `<!doctype html>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <head>
 <script src="http://localhost:35729/livereload.js"></script>
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
 </head>
 {{.Css}}
 <style>
@@ -53,6 +57,7 @@ const base = `<!doctype html>
   {{ .Content }}
 </article>
 </body>
+
 <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
 <script>
 mermaid.initialize({startOnLoad: true});
