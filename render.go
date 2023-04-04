@@ -26,45 +26,8 @@ var md = goldmark.New(
 //go:embed css/prism.css
 var assets embed.FS
 
-const base = `<!doctype html>
-<html>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<head>
-<script src="http://localhost:35729/livereload.js"></script>
-
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/default.min.css">
-<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
-<script>hljs.highlightAll();</script>
-</head>
-{{.Css}}
-<style>
-.markdown-body {
-		box-sizing: border-box;
-		min-width: 200px;
-		max-width: 980px;
-		margin: 0 auto;
-		padding: 45px;
-	}
-
-	@media (max-width: 767px) {
-		.markdown-body {
-			padding: 15px;
-		}
-	}
-</style>
-<body style="{{ .DarkStyle }}">
-<article class="markdown-body">
-  {{ .Content }}
-</article>
-</body>
-
-<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
-<script>
-mermaid.initialize({startOnLoad: true});
-mermaid.init(undefined, '.language-mermaid');
-</script>
-</html>
-`
+//go:embed html/index.html
+var baseHTML []byte
 
 var style string
 
@@ -106,7 +69,7 @@ func render(mdtext []byte, isdark bool) ([]byte, error) {
 
 		return nil, err
 	}
-	tmpl, err := template.New("tmpl").Parse(base)
+	tmpl, err := template.New("tmpl").Parse(string(baseHTML))
 	if err != nil {
 		log.Fatal(err)
 
