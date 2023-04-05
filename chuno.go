@@ -61,3 +61,19 @@ func LaunchPreviewServer(path string, port int, darkmode bool) error {
 	}
 	return nil
 }
+
+// Build is rendoring MarkDown to HTML
+func Build(path string) ([]byte, error) {
+	content, err := load(path)
+	if err != nil {
+		log.Fatal("Can't open file", err)
+	}
+
+	html, err := render(content, isDark)
+	if err != nil {
+		log.Fatal("Error in rendering.")
+		return []byte(""), err
+	}
+
+	return html, nil
+}
