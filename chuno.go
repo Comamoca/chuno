@@ -16,7 +16,6 @@ var (
 	// Path is markdown file path to preview.
 	Path   string
 	isDark = false
-	port   = 3535
 )
 
 func handler(w http.ResponseWriter, r *http.Request) {
